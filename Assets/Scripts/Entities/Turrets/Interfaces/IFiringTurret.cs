@@ -21,7 +21,7 @@ public abstract class FiringTurret : Turret {
     /// <summary>
     /// The entity that this turret is currently targeting
     /// </summary>
-    public Entity? currentTarget { get; set; }
+    public Entity currentTarget { get; set; }
 
     /// <summary>
     /// How long until this turret can fire again

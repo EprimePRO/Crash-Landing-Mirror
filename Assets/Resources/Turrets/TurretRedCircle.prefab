@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9047557671848303875}
   - component: {fileID: 568043931195724533}
   m_Layer: 0
-  m_Name: TurretCircle
+  m_Name: TurretRedCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,6 +102,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9047557671848303884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ca2a7fc35c56d42ad178694f53892f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8682cc5cba6716249ab49369e0317d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

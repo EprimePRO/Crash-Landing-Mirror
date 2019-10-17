@@ -20,7 +20,7 @@ public class Entity : MonoBehaviour {
         get => this.gameObject.transform.position;
         set => this.gameObject.transform.position = value; 
     }
-
+/*
     /// <summary>
     /// Spawns a new GameObject and adds the component
     /// </summary>
@@ -35,4 +35,5 @@ public class Entity : MonoBehaviour {
         t.sprite = sprite;
         return t;
     }
+*/
 }

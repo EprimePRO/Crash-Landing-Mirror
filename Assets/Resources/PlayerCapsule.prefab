@@ -102,7 +102,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4314130229446037956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6033491bb90200d418cd4608a36b0804, type: 3}
+  m_Script: {fileID: 11500000, guid: b7cf0fdc1c4d6134bb37837f2586d220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 100
+  moveSpeed: 1
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  radius: 5.12

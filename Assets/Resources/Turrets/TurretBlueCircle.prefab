@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2001960004327686845}
   - component: {fileID: 2001960004327686846}
   - component: {fileID: 2001960004327686847}
-  - component: {fileID: 7036062094573292873}
+  - component: {fileID: 7589052018976551677}
   m_Layer: 0
   m_Name: TurretBlueCircle
   m_TagString: Untagged
@@ -93,7 +93,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7036062094573292873
+--- !u!114 &7589052018976551677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,6 +102,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2001960004327686832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ca2a7fc35c56d42ad178694f53892f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8682cc5cba6716249ab49369e0317d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

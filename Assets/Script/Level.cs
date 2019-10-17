@@ -2,24 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour
-{
-
-
-    public GameObject[] enemies;
+public class Level : MonoBehaviour {
+    
+    public GameObject[] enemiesPrefabs;
+    public GameObject playerPrefab = null;
     public GameObject player;
-    public GameObject[] turrets;
+    public GameObject[] turretsPrefab = null;
+    //public GameObject[] turrets;
+    public GameObject rocketPrefab = null;
     public GameObject rocket;
     public List<GameObject> turretList;
     public List<GameObject> enemyList;
 
-    void spawnEnemy()
-    {
-        foreach(GameObject e in enemies)
-        {
-            for(int i = 0; i < 5; i++)
-            {
-                GameObject enemy = Instantiate(e, new Vector2(i*5, -10), Quaternion.identity);
+    void spawnEnemy() {
+        foreach (GameObject e in enemiesPrefabs) {
+            for (int i = 0; i < 5; i++) {
+                GameObject enemy = Instantiate(e, new Vector2(i * 5, -10), Quaternion.identity);
                 enemy.GetComponent<Enemy>().health = 0;
                 enemy.GetComponent<Enemy>().target = player;
                 enemy.GetComponent<Enemy>().damage = 5;
@@ -32,16 +30,13 @@ public class Level : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        enemies = Resources.LoadAll<GameObject>("Enemies");
-        player = Instantiate(Resources.Load<GameObject>("PlayerCapsule"), new Vector2(10, 0), Quaternion.identity);
-        turrets = Resources.LoadAll<GameObject>("Turrets");
-        rocket = Instantiate(Resources.Load<GameObject>("RocketCylinder"), new Vector2(20, 0), Quaternion.identity);
+    void Start() {
+        Debug.Log("Start called");
+        player = Instantiate(playerPrefab, new Vector2(10, 0), Quaternion.identity);
+        rocket = Instantiate(rocketPrefab, new Vector2(20, 0), Quaternion.identity);
         int i = 0;
-        foreach (GameObject e in turrets)
-        {
-            GameObject turret = Instantiate(e, new Vector2(i*5,0), Quaternion.identity);
+        foreach (GameObject e in turretsPrefab) {
+            GameObject turret = Instantiate(e, new Vector2(i * 5, 0), Quaternion.identity);
             turretList.Add(turret);
             i++;
         }
@@ -49,8 +44,7 @@ public class Level : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+
     }
 }

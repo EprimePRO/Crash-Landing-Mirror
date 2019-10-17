@@ -238,6 +238,7 @@ MonoBehaviour:
   moveSpeed: 5
   rb: {fileID: 1320250344}
   animator: {fileID: 1320250347}
+  radius: 7
 --- !u!50 &1320250344
 Rigidbody2D:
   serializedVersion: 4

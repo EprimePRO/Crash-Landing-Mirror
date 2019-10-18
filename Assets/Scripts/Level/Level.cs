@@ -32,8 +32,8 @@ public class Level : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         Debug.Log("Start called");
-        player = Instantiate(playerPrefab, new Vector2(10, 0), Quaternion.identity);
-        rocket = Instantiate(rocketPrefab, new Vector2(20, 0), Quaternion.identity);
+        player = Instantiate(playerPrefab, new Vector2(0.5f, 0), Quaternion.identity);
+        rocket = Instantiate(rocketPrefab, new Vector2(0, 0), Quaternion.identity);
         int i = 0;
         foreach (GameObject e in turretsPrefab) {
             GameObject turret = Instantiate(e, new Vector2(i * 5, 0), Quaternion.identity);

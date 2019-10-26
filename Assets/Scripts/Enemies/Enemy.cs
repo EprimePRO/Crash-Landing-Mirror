@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Entity {
-    public float health;
-    public GameObject target;
+public class Enemy : HealthyEntity {
+    public Entity target;
     public int damage;
     public float range;
     public float attackrate;
     public float lastattack;
-    public GameObject level;
 
-    GameObject selectTarget(List<GameObject> turrets, GameObject player, GameObject rocket) {
+    Entity selectTarget(List<Turret> turrets, Player player, Rocket rocket) {
         if (Vector2.Distance(transform.position, player.transform.position) >= Vector2.Distance(transform.position, rocket.transform.position)) {
             target = rocket;
         } else {
             target = player;
         }
-        foreach (GameObject t in turrets) {
+        foreach (Turret t in turrets) {
             if (Vector2.Distance(transform.position, target.transform.position) > Vector2.Distance(transform.position, t.transform.position)) {
                 target = t;
             }
@@ -33,18 +31,15 @@ public class Enemy : Entity {
     void attackTarget() {
         if (ableToAttack()) {
             lastattack = Time.time + attackrate;
-            if (target.GetComponent<Player>()) {
-                Player t = target.GetComponent<Player>();
-                t.health = t.health - damage;
-                Debug.Log("dealt " + damage + " to Player " + t.name + "(" + t.health + ")");
+            if (target is Player p) {
+                p.health -= damage;
+                Debug.Log("dealt " + damage + " to Player " + p.name + "(" + p.health + ")");
 
-            } else if (target.GetComponent<Rocket>()) {
-                Rocket t = target.GetComponent<Rocket>();
-                t.shield_power = t.shield_power - damage;
-                Debug.Log("dealt " + damage + " to Rocket " + t.name + "(" + t.shield_power + ")");
+            } else if (target is Rocket r) {
+                r.shield_power -= damage;
+                Debug.Log("dealt " + damage + " to Rocket " + r.name + "(" + r.shield_power + ")");
 
-            } else if (target.GetComponent<Turret>()) {
-                Turret t = target.GetComponent<Turret>();
+            } else if (target is Turret t) {
                 Debug.Log("dealt " + damage + " to Turret " + t.name + "(" + ")");
             }
         }
@@ -60,13 +55,13 @@ public class Enemy : Entity {
 
 
     // Start is called before the first frame update
-    void Start() {
-
+    new void Start() {
+        base.Start();
     }
 
     // Update is called once per frame
     void Update() {
-        selectTarget(level.GetComponent<Level>().turretList, level.GetComponent<Level>().player, level.GetComponent<Level>().rocket);
+        selectTarget(level.turretList, level.player, level.rocket);
         moveToTarget();
         attackTarget();
     }

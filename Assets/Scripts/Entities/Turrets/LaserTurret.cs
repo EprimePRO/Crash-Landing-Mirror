@@ -2,5 +2,5 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Turret : HealthyEntity {
+public class LaserTurret : FiringTurret {
 }

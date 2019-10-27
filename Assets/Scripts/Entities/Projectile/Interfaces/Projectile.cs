@@ -20,13 +20,15 @@ public class Projectile : Entity {
 
     private void move() {
         if(this.target == null) {
-            GameObject.Destroy(this);
+            Destroy(gameObject);
             return;
         }
         Vector2 curPos = this.position;
         Vector2 goalPos = target.position;
         Vector2 dir = (goalPos - curPos).normalized;
         this.position += dir * this.moveSpeed * Time.fixedDeltaTime;
+        Vector2 look = (target.transform.position - transform.position);
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(look.x, look.y) * Mathf.Rad2Deg * -1f);
     }
 
     public void OnCollisionEnter2D(Collision2D collision) {
@@ -34,7 +36,7 @@ public class Projectile : Entity {
         if (collidedWith == this.target.gameObject) {
             Enemy e = collidedWith.GetComponent<Enemy>();
             e.doDamage(this.shootingTurret.damage);
-            GameObject.Destroy(this);
+            Destroy(gameObject);
         }
     }
 

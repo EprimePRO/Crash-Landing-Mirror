@@ -10,13 +10,13 @@ public class Enemy : HealthyEntity {
     public float lastattack;
 
     Entity selectTarget(List<Turret> turrets, Player player, Rocket rocket) {
-        if (Vector2.Distance(transform.position, player.transform.position) >= Vector2.Distance(transform.position, rocket.transform.position)) {
+        if ((player == null && rocket != null) || Vector2.Distance(transform.position, player.transform.position) >= Vector2.Distance(transform.position, rocket.transform.position)) {
             target = rocket;
-        } else {
+        } else if (player != null) {
             target = player;
         }
         foreach (Turret t in turrets) {
-            if (Vector2.Distance(transform.position, target.transform.position) > Vector2.Distance(transform.position, t.transform.position)) {
+            if (target == null || Vector2.Distance(transform.position, target.transform.position) > Vector2.Distance(transform.position, t.transform.position)) {
                 target = t;
             }
         }
@@ -24,8 +24,14 @@ public class Enemy : HealthyEntity {
     }
 
     void moveToTarget() {
+        if (target == null)
+        {
+            return;
+        }
         float speed = Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed);
+        Vector2 look = (target.transform.position - transform.position);
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(look.x, look.y) * Mathf.Rad2Deg*-1f);
     }
 
     void attackTarget() {
@@ -46,7 +52,7 @@ public class Enemy : HealthyEntity {
     }
 
     bool ableToAttack() {
-        if (Time.time >= lastattack && Vector2.Distance(transform.position, target.transform.position) <= range) {
+        if (target != null && Time.time >= lastattack && Vector2.Distance(transform.position, target.transform.position) <= range) {
             return true;
         } else {
             return false;

@@ -14,7 +14,7 @@ public class HealthyEntity : Entity {
                 } else if (this is Player) {
                     this.level.player = null;
                 }
-                GameObject.Destroy(this);
+                Destroy(gameObject);
             }
         }
     }

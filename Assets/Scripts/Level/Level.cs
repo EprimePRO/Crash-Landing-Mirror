@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour {
+public class Level : MonoBehaviour
+{
 
     public GameObject[] enemiesPrefabs;
     public GameObject playerPrefab = null;
@@ -13,9 +14,12 @@ public class Level : MonoBehaviour {
     public List<Turret> turretList;
     public List<Enemy> enemyList;
 
-    void spawnEnemy() {
-        foreach (GameObject enemyPrefab in enemiesPrefabs) {
-            for (int i = 0; i < 5; i++) {
+    void spawnEnemy()
+    {
+        foreach (GameObject enemyPrefab in enemiesPrefabs)
+        {
+            for (int i = 0; i < 5; i++)
+            {
                 GameObject enemy = Instantiate(enemyPrefab, new Vector2(i * 5, -10), Quaternion.identity);
                 Enemy e = enemy.GetComponent<Enemy>();
                 e.attackrate = 5;
@@ -28,20 +32,20 @@ public class Level : MonoBehaviour {
     void Start()
     {
         Debug.Log("Start called");
-        player = Instantiate(playerPrefab, new Vector2(0.5f, 0), Quaternion.identity);
-        rocket = Instantiate(rocketPrefab, new Vector2(0, 0), Quaternion.identity);
-        int i = 0;
-        foreach (GameObject e in turretsPrefab)
+        player = Instantiate(playerPrefab, new Vector2(0, 0), Quaternion.identity).GetComponent<Player>();
+        rocket = Instantiate(rocketPrefab, new Vector2(0, 0), Quaternion.identity).GetComponent<Rocket>();
+        for (int i = 0; i < this.turretsPrefab.Length; i += 1)
         {
-            GameObject turret = Instantiate(e, new Vector2(i * 5, 0), Quaternion.identity);
-            turretList.Add(turret);
-            i++;
+            GameObject turret = Instantiate(this.turretsPrefab[i], new Vector2(i * 5, 0), Quaternion.identity);
+            Turret t = turret.GetComponent<Turret>();
+            turretList.Add(t);
         }
         spawnEnemy();
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 
     }
 }

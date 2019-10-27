@@ -25,14 +25,17 @@ public class Level : MonoBehaviour {
         }
     }
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         Debug.Log("Start called");
-        player = Instantiate(playerPrefab, new Vector2(0, 0), Quaternion.identity).GetComponent<Player>();
-        rocket = Instantiate(rocketPrefab, new Vector2(0, 0), Quaternion.identity).GetComponent<Rocket>();
-        for (int i = 0; i < this.turretsPrefab.Length; i += 1) {
-            GameObject turret = Instantiate(this.turretsPrefab[i], new Vector2(i * 5, 0), Quaternion.identity);
-            Turret t = turret.GetComponent<Turret>();
-            turretList.Add(t);
+        player = Instantiate(playerPrefab, new Vector2(0.5f, 0), Quaternion.identity);
+        rocket = Instantiate(rocketPrefab, new Vector2(0, 0), Quaternion.identity);
+        int i = 0;
+        foreach (GameObject e in turretsPrefab)
+        {
+            GameObject turret = Instantiate(e, new Vector2(i * 5, 0), Quaternion.identity);
+            turretList.Add(turret);
+            i++;
         }
         spawnEnemy();
     }

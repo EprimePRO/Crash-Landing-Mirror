@@ -32,7 +32,7 @@ public class Level : MonoBehaviour
     void Start()
     {
         Debug.Log("Start called");
-        player = Instantiate(playerPrefab, new Vector2(0, 0), Quaternion.identity).GetComponent<Player>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         rocket = Instantiate(rocketPrefab, new Vector2(0, 0), Quaternion.identity).GetComponent<Rocket>();
         for (int i = 0; i < this.turretsPrefab.Length; i += 1)
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
+    public GameObject player;
     public Camera camera;
 
     float cameraDistanceMax = 5f;
@@ -11,10 +12,13 @@ public class CameraControl : MonoBehaviour
     float cameraDistance = 5f;
     float scrollSpeed = 100f;
 
+
+    private Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player");
+        offset = transform.position - player.transform.position;
     }
 
     // Update is called once per frame
@@ -24,5 +28,10 @@ public class CameraControl : MonoBehaviour
         cameraDistance = Mathf.Clamp(cameraDistance, cameraDistanceMin, cameraDistanceMax);
 
         camera.orthographicSize = cameraDistance;
+    }
+
+    private void LateUpdate()
+    {
+        camera.transform.position = player.transform.position + offset;
     }
 }

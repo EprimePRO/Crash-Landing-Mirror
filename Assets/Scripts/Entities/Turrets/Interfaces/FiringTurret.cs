@@ -32,7 +32,7 @@ public abstract class FiringTurret : Turret {
     public GameObject projectilePrefab;
 
     protected virtual Projectile spawnProjectile() {
-        GameObject g = Instantiate(projectilePrefab);
+        GameObject g = Instantiate(projectilePrefab, transform);
         Projectile p = g.GetComponent<Projectile>();
         p.shootingTurret = this;
         p.target = this.currentTarget;

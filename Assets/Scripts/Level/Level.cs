@@ -36,7 +36,7 @@ public class Level : MonoBehaviour
         rocket = Instantiate(rocketPrefab, new Vector2(0, 0), Quaternion.identity).GetComponent<Rocket>();
         for (int i = 0; i < this.turretsPrefab.Length; i += 1)
         {
-            GameObject turret = Instantiate(this.turretsPrefab[i], new Vector2(i * 5, 0), Quaternion.identity);
+            GameObject turret = Instantiate(this.turretsPrefab[i], new Vector2((i+0.2f) * 5, 0), Quaternion.identity);
             Turret t = turret.GetComponent<Turret>();
             turretList.Add(t);
         }

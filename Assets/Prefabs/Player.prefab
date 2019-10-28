@@ -117,7 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7cf0fdc1c4d6134bb37837f2586d220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  level: {fileID: 0}
+  name: 
+  _health: 0
   moveSpeed: 5
   rb: {fileID: 1634041909522323698}
   animator: {fileID: 1634041909522323697}
@@ -152,6 +154,7 @@ GameObject:
   - component: {fileID: 1634041910532511405}
   - component: {fileID: 1634041910532511404}
   - component: {fileID: 1634041910532511407}
+  - component: {fileID: 5201215813612902842}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -224,3 +227,16 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634041910532511401}
   m_Enabled: 1
+--- !u!114 &5201215813612902842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634041910532511401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08a99b9760869b4f8e33b19b97da630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 1634041910532511404}

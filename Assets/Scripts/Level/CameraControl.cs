@@ -7,7 +7,7 @@ public class CameraControl : MonoBehaviour
     public GameObject player;
     public Camera camera;
 
-    float cameraDistanceMax = 5f;
+    float cameraDistanceMax = 8f;
     float cameraDistanceMin = 2f;
     float cameraDistance = 5f;
     float scrollSpeed = 100f;

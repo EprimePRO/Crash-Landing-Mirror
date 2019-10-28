@@ -50,3 +50,6 @@ TagManager:
   - name: Player
     uniqueID: 456131529
     locked: 0
+  - name: Rocket
+    uniqueID: 1285376601
+    locked: 0

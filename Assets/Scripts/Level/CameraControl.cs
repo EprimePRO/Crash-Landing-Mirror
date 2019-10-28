@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour
 {
     public GameObject player;
-    public Camera camera;
+    public new Camera camera;
 
     float cameraDistanceMax = 8f;
     float cameraDistanceMin = 2f;

@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : HealthyEntity {
     public float moveSpeed = 1f;
     public Rigidbody2D rb;
     public Animator animator;
     public float radius = 5.12f;
+    public Text healthText;
 
     Vector2 movement;
 
@@ -23,6 +25,10 @@ public class Player : HealthyEntity {
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
+
+        //set the player's current health in the UI
+        healthText.text = ((int)System.Math.Round(health)).ToString();
+        health -= Time.deltaTime; //to be deleted
     }
 
     private void FixedUpdate() {

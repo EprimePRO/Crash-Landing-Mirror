@@ -36,7 +36,7 @@ public class Level : MonoBehaviour
         spawnTimer += Time.deltaTime;
         if (spawnInterval <= spawnTimer)
         {
-            GameObject enemy = Instantiate(enemiesPrefabs[0], Random.insideUnitCircle * 7f, Quaternion.identity);
+            GameObject enemy = Instantiate(enemiesPrefabs[0], Random.insideUnitCircle.normalized * 7f, Quaternion.identity);
             Enemy e = enemy.GetComponent<Enemy>();
             e.attackrate = 5;
             e.lastattack = Time.time;

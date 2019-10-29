@@ -28,7 +28,6 @@ public class Player : HealthyEntity {
 
         //set the player's current health in the UI
         healthText.text = ((int)System.Math.Round(health)).ToString();
-        health -= Time.deltaTime; //to be deleted
     }
 
     private void FixedUpdate() {

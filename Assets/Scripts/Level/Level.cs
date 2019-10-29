@@ -14,20 +14,6 @@ public class Level : MonoBehaviour
     public List<Turret> turretList;
     public List<Enemy> enemyList;
 
-    void spawnEnemy()
-    {
-        foreach (GameObject enemyPrefab in enemiesPrefabs)
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                GameObject enemy = Instantiate(enemyPrefab, new Vector2(i * 5, -10), Quaternion.identity);
-                Enemy e = enemy.GetComponent<Enemy>();
-                e.attackrate = 5;
-                e.lastattack = Time.time;
-                enemyList.Add(e);
-            }
-        }
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -40,12 +26,22 @@ public class Level : MonoBehaviour
             Turret t = turret.GetComponent<Turret>();
             turretList.Add(t);
         }
-        spawnEnemy();
     }
 
+    private float spawnInterval = 3f;
+    private float spawnTimer = 0f;
     // Update is called once per frame
     void Update()
     {
-
+        spawnTimer += Time.deltaTime;
+        if (spawnInterval <= spawnTimer)
+        {
+            GameObject enemy = Instantiate(enemiesPrefabs[0], Random.insideUnitCircle * 7f, Quaternion.identity);
+            Enemy e = enemy.GetComponent<Enemy>();
+            e.attackrate = 5;
+            e.lastattack = Time.time;
+            enemyList.Add(e);
+            spawnTimer = 0f;
+        }
     }
 }

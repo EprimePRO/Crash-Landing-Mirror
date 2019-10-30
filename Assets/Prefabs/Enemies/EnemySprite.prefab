@@ -98,12 +98,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: {fileID: 0}
   name: 
-  _health: 100
+  _health: 1
   target: {fileID: 0}
-  damage: 25
+  damage: 1
   range: 1
-  attackrate: 5
+  attackrate: 1
   lastattack: 0
+  resourceDrop: 1
 --- !u!61 &5452682069915315857
 BoxCollider2D:
   m_ObjectHideFlags: 0

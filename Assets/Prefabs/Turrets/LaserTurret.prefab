@@ -96,7 +96,7 @@ MonoBehaviour:
   level: {fileID: 0}
   name: 
   _health: 100
-  damage: 35
+  damage: 1
   fireRate: 3
   range: 5
   currentTarget: {fileID: 0}

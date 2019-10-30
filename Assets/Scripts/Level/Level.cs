@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Level : MonoBehaviour
     public Rocket rocket;
     public List<Turret> turretList;
     public List<Enemy> enemyList;
+    public Text resourceText;
+    public int resources = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -43,5 +46,8 @@ public class Level : MonoBehaviour
             enemyList.Add(e);
             spawnTimer = 0f;
         }
+
+        //set the amount of resources on UI
+        resourceText.text = resources.ToString();
     }
 }

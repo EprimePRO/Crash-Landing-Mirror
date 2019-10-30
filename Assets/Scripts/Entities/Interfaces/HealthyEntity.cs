@@ -9,6 +9,7 @@ public class HealthyEntity : Entity {
             if (health <= 0f) {
                 if (this is Enemy e) {
                     this.level.enemyList.Remove(e);
+                    this.level.resources += e.resourceDrop;
                 } else if (this is Turret t) {
                     this.level.turretList.Remove(t);
                 } else if (this is Player) {

@@ -8,6 +8,7 @@ public class Enemy : HealthyEntity {
     public float range;
     public float attackrate;
     public float lastattack;
+    public int resourceDrop = 1;
 
     Entity selectTarget(List<Turret> turrets, Player player, Rocket rocket) {
         if ((player == null && rocket != null) || Vector2.Distance(transform.position, player.transform.position) >= Vector2.Distance(transform.position, rocket.transform.position)) {

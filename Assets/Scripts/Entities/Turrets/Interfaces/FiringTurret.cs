@@ -64,6 +64,9 @@ public abstract class FiringTurret : Turret {
 
     public void FixedUpdate() {
         this.findTarget();
+        if (currentTarget) {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, currentTarget.transform.rotation, 1000f);
+        }
         this.fire();
     }
 

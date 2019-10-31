@@ -44,7 +44,7 @@ public abstract class FiringTurret : Turret {
         Vector2 curPos = this.position;
         foreach(Enemy e in this.level.enemyList) {
             float dist = (curPos - e.position).magnitude;
-            if(dist < closest.Item2) {
+            if(dist < closest.Item2 && dist<=range) {
                 closest = (e, dist);
             }
         }

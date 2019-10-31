@@ -98,7 +98,7 @@ MonoBehaviour:
   _health: 100
   damage: 1
   fireRate: 3
-  range: 5
+  range: 3
   currentTarget: {fileID: 0}
   projectilePrefab: {fileID: 1538337534065620198, guid: 2e293cc4c5867f14589c37114ec5f304,
     type: 3}

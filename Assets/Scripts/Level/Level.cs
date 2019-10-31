@@ -16,6 +16,7 @@ public class Level : MonoBehaviour
     public List<Enemy> enemyList;
     public Text resourceText;
     public int resources = 0;
+    private TurretButton chosenTurret;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class Level : MonoBehaviour
             Turret t = turret.GetComponent<Turret>();
             turretList.Add(t);
         }
+        
     }
 
     private float spawnInterval = 3f;
@@ -49,5 +51,23 @@ public class Level : MonoBehaviour
 
         //set the amount of resources on UI
         resourceText.text = resources.ToString();
+    }
+
+    private void OnMouseDown()
+    {
+        if (chosenTurret != null)
+        {
+            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mouse.z = 0;
+            GameObject turret = Instantiate(chosenTurret.TurretPrefab, mouse, Quaternion.identity);
+            Turret t = turret.GetComponent<Turret>();
+            turretList.Add(t);
+            chosenTurret = null;
+        }
+    }
+
+    public void PickTurret(TurretButton t)
+    {
+        this.chosenTurret = t;
     }
 }

@@ -34,7 +34,7 @@ public class Level : MonoBehaviour
         
     }
 
-    private float spawnInterval = 3f;
+    private float spawnInterval = 0.1f;
     private float spawnTimer = 0f;
     // Update is called once per frame
     void Update()

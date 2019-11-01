@@ -17,7 +17,8 @@ public class Enemy : HealthyEntity {
             target = player;
         }
         foreach (Turret t in turrets) {
-            if (target == null || Vector2.Distance(transform.position, target.transform.position) > Vector2.Distance(transform.position, t.transform.position)) {
+            if ((target == null || Vector2.Distance(transform.position, target.transform.position) > Vector2.Distance(transform.position, t.transform.position))
+                && t.placed) {
                 target = t;
             }
         }

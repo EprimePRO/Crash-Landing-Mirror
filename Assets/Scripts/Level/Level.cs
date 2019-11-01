@@ -16,7 +16,7 @@ public class Level : MonoBehaviour
     public List<Enemy> enemyList;
     public Text resourceText;
     public int resources = 0;
-    private TurretButton chosenTurret;
+    private FiringTurret chosenTurret;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,7 @@ public class Level : MonoBehaviour
         {
             GameObject turret = Instantiate(this.turretsPrefab[i], new Vector2((i+0.2f) * 5, 0), Quaternion.identity);
             Turret t = turret.GetComponent<Turret>();
+            t.placed = true;
             turretList.Add(t);
         }
         
@@ -57,17 +58,20 @@ public class Level : MonoBehaviour
     {
         if (chosenTurret != null)
         {
-            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mouse.z = 0;
-            GameObject turret = Instantiate(chosenTurret.TurretPrefab, mouse, Quaternion.identity);
-            Turret t = turret.GetComponent<Turret>();
-            turretList.Add(t);
+            chosenTurret.placed = true;
+            chosenTurret.transform.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 0.5f);
             chosenTurret = null;
         }
     }
 
     public void PickTurret(TurretButton t)
     {
-        this.chosenTurret = t;
+        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouse.z = 0;
+        GameObject turretGO = Instantiate(t.TurretPrefab, mouse, Quaternion.identity);
+        FiringTurret turret = turretGO.GetComponent<FiringTurret>();
+        turretList.Add(turret);
+        turret.transform.GetComponent<SpriteRenderer>().color += new Color(0,0,0,-0.5f);
+        this.chosenTurret = turret;
     }
 }

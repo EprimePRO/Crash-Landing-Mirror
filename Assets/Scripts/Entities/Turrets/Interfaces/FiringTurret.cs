@@ -62,7 +62,17 @@ public abstract class FiringTurret : Turret {
         }
     }
 
+
     public void FixedUpdate() {
+
+        if (!placed)
+        {
+            Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mouse.z = 0;
+            transform.position = mouse;
+            return;
+        }
+
         this.findTarget();
         if (currentTarget) {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, currentTarget.transform.rotation, 1000f);

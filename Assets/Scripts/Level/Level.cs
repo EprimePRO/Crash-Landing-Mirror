@@ -71,7 +71,8 @@ public class Level : MonoBehaviour
         GameObject turretGO = Instantiate(t.TurretPrefab, mouse, Quaternion.identity);
         FiringTurret turret = turretGO.GetComponent<FiringTurret>();
         turretList.Add(turret);
-        turret.transform.GetComponent<SpriteRenderer>().color += new Color(0,0,0,-0.5f);
+        turret.transform.GetComponent<SpriteRenderer>().color = new Color(100, 0, 0, 0.5f);
         this.chosenTurret = turret;
     }
+
 }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6789294494926651454}
   - component: {fileID: 5214250854063625216}
   - component: {fileID: 3845852888375180848}
-  m_Layer: 30
+  m_Layer: 29
   m_Name: RocketCylinder
-  m_TagString: Untagged
+  m_TagString: level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

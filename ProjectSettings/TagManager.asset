@@ -35,8 +35,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Projectile
+  - Rocket
   - Level
   - Background
   m_SortingLayers:

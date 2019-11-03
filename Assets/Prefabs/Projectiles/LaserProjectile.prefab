@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1538337534065620199}
   - component: {fileID: 3664459132956331980}
   - component: {fileID: 3850898339028897480}
-  m_Layer: 0
+  m_Layer: 28
   m_Name: LaserProjectile
-  m_TagString: Untagged
+  m_TagString: turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

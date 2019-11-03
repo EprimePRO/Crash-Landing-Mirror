@@ -32,7 +32,7 @@ public class Enemy : HealthyEntity {
         }
         float speed = Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed);
-        Vector2 look = (target.transform.position - transform.position);
+        Vector2 look = target.transform.position - transform.position;
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(look.x, look.y) * Mathf.Rad2Deg*-1f);
     }
 

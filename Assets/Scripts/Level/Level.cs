@@ -16,7 +16,7 @@ public class Level : MonoBehaviour
     public List<Enemy> enemyList;
     public Text resourceText;
     public int resources = 0;
-    private FiringTurret chosenTurret;
+    private Turret chosenTurret;
 
     // Start is called before the first frame update
     void Start()

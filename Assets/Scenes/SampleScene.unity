@@ -158,7 +158,8 @@ MonoBehaviour:
     type: 3}
   player: {fileID: 0}
   turretsPrefab:
-  - {fileID: 2868526130850366523, guid: 9526c6e0605ab1741ba42597cf66f0d5, type: 3}
+  - {fileID: 3767936859498569500, guid: c1e38ac42b2b2c342a20ecab0b573c03, type: 3}
+  - {fileID: 27253378175047232, guid: ff97ab9eed3cbcb4f8be655ffa48e652, type: 3}
   rocketPrefab: {fileID: 2662217309988294427, guid: 6d8a6b26ba8bd034c88e532e6d50c67f,
     type: 3}
   rocket: {fileID: 0}
@@ -425,7 +426,7 @@ GameObject:
   - component: {fileID: 243253250}
   - component: {fileID: 243253249}
   m_Layer: 5
-  m_Name: LaserTurretBtn (1)
+  m_Name: RocketTurretBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -462,7 +463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40002c710b5b0c644b4ed090682f931f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretPrefab: {fileID: 0}
+  turretPrefab: {fileID: 27253378175047232, guid: ff97ab9eed3cbcb4f8be655ffa48e652,
+    type: 3}
 --- !u!114 &243253250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +541,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b51d18577d0ec4d29b81998d983bd710, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -646,7 +648,7 @@ GameObject:
   - component: {fileID: 530169615}
   - component: {fileID: 530169618}
   m_Layer: 5
-  m_Name: LaserTurretBtn
+  m_Name: MachineGunTurretBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -777,7 +779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40002c710b5b0c644b4ed090682f931f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretPrefab: {fileID: 2868526130850366523, guid: 9526c6e0605ab1741ba42597cf66f0d5,
+  turretPrefab: {fileID: 3767936859498569500, guid: c1e38ac42b2b2c342a20ecab0b573c03,
     type: 3}
 --- !u!1 &556322755
 GameObject:
@@ -977,7 +979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &910479709
 RectTransform:
   m_ObjectHideFlags: 0
@@ -992,10 +994,10 @@ RectTransform:
   m_Father: {fileID: 2129033775}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65.35, y: -392.92908}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &910479710
 MonoBehaviour:

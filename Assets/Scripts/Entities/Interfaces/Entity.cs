@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,8 +33,12 @@ public class Entity : MonoBehaviour {
         set => this.gameObject.transform.position = value;
     }
 
-    public void Start() {
+    public void Awake() {
         this.spriteRenderer = this.GetComponent<SpriteRenderer>();
         this.level = GameObject.FindObjectOfType<Level>();
+    }
+
+    public void Start() {
+
     }
 }

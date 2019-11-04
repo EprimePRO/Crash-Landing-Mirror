@@ -9,10 +9,12 @@ public class Enemy : HealthyEntity {
     public float attackrate;
     public float lastattack;
     public int resourceDrop = 1;
+    public Enemy_Action action;
 
     Entity selectTarget(List<Turret> turrets, Player player, Rocket rocket) {
         if ((player == null && rocket != null) || Vector2.Distance(transform.position, player.transform.position) >= Vector2.Distance(transform.position, rocket.transform.position)) {
             target = rocket;
+
         } else if (player != null) {
             target = player;
         }
@@ -30,10 +32,7 @@ public class Enemy : HealthyEntity {
         {
             return;
         }
-        float speed = Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed);
-        Vector2 look = target.transform.position - transform.position;
-        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(look.x, look.y) * Mathf.Rad2Deg*-1f);
+        action.SelectMovement(this);
     }
 
     void attackTarget() {
@@ -61,14 +60,14 @@ public class Enemy : HealthyEntity {
         }
     }
 
-
     // Start is called before the first frame update
     new void Start() {
         base.Start();
+        action = gameObject.GetComponent<Enemy_Action>();
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         selectTarget(level.turretList, level.player, level.rocket);
         moveToTarget();
         attackTarget();

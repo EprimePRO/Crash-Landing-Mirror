@@ -154,6 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesPrefabs:
   - {fileID: 5452682069915315861, guid: 688d94da22b476e45aad2f11ee55f08d, type: 3}
+  - {fileID: 499440360814054525, guid: 40de91cc823a288498e08654c47f0a7a, type: 3}
+  - {fileID: 443843501066472420, guid: 88557f1e7c888c24aad123df0bcee7e8, type: 3}
   playerPrefab: {fileID: 1634041909522323708, guid: daafe0d367ef9454390a55af43b3507a,
     type: 3}
   player: {fileID: 0}
@@ -872,6 +874,7 @@ GameObject:
   - component: {fileID: 627612402}
   - component: {fileID: 627612401}
   - component: {fileID: 627612400}
+  - component: {fileID: 627612404}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -960,6 +963,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!61 &627612404
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627612399}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &910479708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1469,7 @@ PrefabInstance:
     - target: {fileID: 1634041909522323696, guid: daafe0d367ef9454390a55af43b3507a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -0.66
       objectReference: {fileID: 0}
     - target: {fileID: 1634041909522323696, guid: daafe0d367ef9454390a55af43b3507a,
         type: 3}

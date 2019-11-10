@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Level : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
 
     public GameObject[] enemiesPrefabs;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class Entity : MonoBehaviour {
-    public Level level;
+    public GameManager level;
 
     /// <summary>
     /// The sprite renderer for this entity
@@ -35,7 +35,7 @@ public class Entity : MonoBehaviour {
 
     public void Awake() {
         this.spriteRenderer = this.GetComponent<SpriteRenderer>();
-        this.level = GameObject.FindObjectOfType<Level>();
+        this.level = GameObject.FindObjectOfType<GameManager>();
     }
 
     public void Start() {

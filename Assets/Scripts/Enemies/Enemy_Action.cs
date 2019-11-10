@@ -40,7 +40,6 @@ public class Enemy_Action : MonoBehaviour
     void BackforthMovement()
     {
         float speed = Mathf.Ceil(Mathf.Sin(Time.time * 3f)) * Time.deltaTime;
-        Debug.Log(speed);
         transform.position = Vector2.MoveTowards(transform.position + transform.up * Mathf.Sin(Time.time * 3f) * 0.04f, target.transform.position, speed);
         Vector2 look = target.transform.position - transform.position;
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(look.x, look.y) * Mathf.Rad2Deg * -1f);

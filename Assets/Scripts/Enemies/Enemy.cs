@@ -7,7 +7,7 @@ public class Enemy : HealthyEntity {
     public int damage;
     public float range;
     public float attackrate;
-    public float lastattack;
+    private float attackTimer;
     public int resourceDrop = 1;
     public Enemy_Action action;
 
@@ -36,8 +36,8 @@ public class Enemy : HealthyEntity {
     }
 
     void attackTarget() {
+        attackTimer += Time.deltaTime;
         if (ableToAttack()) {
-            lastattack = Time.time + attackrate;
             if (target is Player p) {
                 p.health -= damage;
                 Debug.Log("dealt " + damage + " to Player " + p.name + "(" + p.health + ")");
@@ -53,7 +53,8 @@ public class Enemy : HealthyEntity {
     }
 
     bool ableToAttack() {
-        if (target != null && Time.time >= lastattack && Vector2.Distance(transform.position, target.transform.position) <= range) {
+        if (target != null && attackTimer>=attackrate && Vector2.Distance(transform.position, target.transform.position) <= range) {
+            attackTimer = 0;
             return true;
         } else {
             return false;
@@ -72,4 +73,5 @@ public class Enemy : HealthyEntity {
         moveToTarget();
         attackTarget();
     }
+
 }

@@ -8,12 +8,16 @@ public class MainMenu : MonoBehaviour
 {
     public Button exit;
     public Button play;
+    GameObject mainMenu;
+    GameObject levelSelect;
 
     // Start is called before the first frame update
     void Start()
     {
         exit.onClick.AddListener(ExitGame);
         play.onClick.AddListener(LoadLevel);
+        mainMenu = GameObject.FindGameObjectWithTag("Main");
+        levelSelect = GameObject.Find("LevelSelect");
     }
 
     // Update is called once per frame
@@ -30,4 +34,5 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    
 }

@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
     private int levelSelected = 0;
 
+    public Sprite[] levels;
+
     void Awake()
     {
         //Check if instance already exists
@@ -36,4 +38,13 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void selectLevel(int level)
+    {
+        levelSelected = level;
+    }
+
+    public Sprite getPlanetSprite()
+    {
+        return levels[levelSelected];
+    }
 }

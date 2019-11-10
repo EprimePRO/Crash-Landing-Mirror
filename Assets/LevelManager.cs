@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance = null;
+    private GameObject planet;
 
     public GameObject[] enemiesPrefabs;
     public GameObject playerPrefab = null;
@@ -35,11 +36,14 @@ public class LevelManager : MonoBehaviour
 
         //Sets this to not be destroyed when reloading scene
         DontDestroyOnLoad(gameObject);
+
+        planet = GameObject.Find("Planet");
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        planet.GetComponent<SpriteRenderer>().sprite = GameManager.instance.getPlanetSprite();
         Debug.Log("Start called");
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         rocket = Instantiate(rocketPrefab, new Vector2(0, 0), Quaternion.identity).GetComponent<Rocket>();

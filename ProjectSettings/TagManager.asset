@@ -8,6 +8,9 @@ TagManager:
   - turret
   - circlemove
   - backforthmove
+  - Main
+  - LevelSelect
+  - LevelManager
   layers:
   - Default
   - TransparentFX

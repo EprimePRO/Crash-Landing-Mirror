@@ -28,7 +28,6 @@ public class MainMenu : MonoBehaviour
 
     void ExitGame()
     {
-        Debug.Log("You clicked the exit button.");
         Application.Quit();
     }
 }
